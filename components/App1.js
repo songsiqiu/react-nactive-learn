@@ -4,7 +4,7 @@ import {View, Text, StyleSheet, ScrollView} from 'react-native';
 const App: () => Node = () => {
   return (
     <View style={styles.text1}>
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
+      <ScrollView horizontal>
         <Text>
           Hello WorldHello WorldHello WorldHello WorldHello WorldHello
           WorldHello WorldHello WorldHello WorldHello WorldHello WorldHello
