@@ -4,11 +4,15 @@ import {View, Text, StyleSheet} from 'react-native';
 const App: () => Node = () => {
   return (
     <View>
-      <Text>Hello World</Text>
+      <Text style={styles.text1}>Hello World</Text>
     </View>
   );
 };
 
-const style
+const styles = StyleSheet.create({
+    text1:{
+        fontSize:30,
+    }
+})
 
 export default App;
