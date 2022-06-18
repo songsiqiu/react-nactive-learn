@@ -21,8 +21,10 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     /* 有四个值: row, row-reverse, column, column-reverse */
-    flexDirection: 'column-reverse',
+    flexDirection: 'row',
     flex: 1, //如果加上这条,相当于撑满屏了
+    //justifyContents的5个值: flex-start, flex-end, center, space-between, space-around
+    justifyContent:"space-around",
   },
   box1: {
     width: 100,
