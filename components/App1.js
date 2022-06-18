@@ -1,9 +1,11 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Dimensions} from 'react-native';
 
-const App: () => Node = () => {
+const {width} = Dimensions.get('window');
+
+const TextContainer = () => {
   return (
-    <View style={styles.container}>
+    <View style={styles.row}>
       <View style={styles.box1}>
         <Text>1</Text>
       </View>
@@ -17,30 +19,50 @@ const App: () => Node = () => {
   );
 };
 
+const App: () => Node = () => {
+  return (
+    <View style={styles.container}>
+      <Text style={{fontSize: 18}}>Flex布局练习</Text>
+      <View style={styles.box}>
+        <TextContainer></TextContainer>
+        <TextContainer></TextContainer>
+        <TextContainer></TextContainer>
+      </View>
+    </View>
+  );
+};
+
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
-    /* 有四个值: row, row-reverse, column, column-reverse */
+    alignItems: 'center',
+    paddingTop: 80,
+  },
+  box: {
+    width: width * 0.9,
+    height: 200,
+    backgroundColor: '#ccc',
+  },
+  row: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: '#000',
     flexDirection: 'row',
-    flex: 1, //如果加上这条,相当于撑满屏了
-    //alignItems的值有: flex-start, flex-end, center, stretch, baseline
-    alignItems:"stretch",
   },
-  box1: {
-    width: 200,
-    // height: 200,
-    backgroundColor: 'red',
+  box1:{
+    flex: 1.5,
+    borderWidth:1,
+    borderColor:'#f00',
   },
-  box2: {
-    width: 100,
-    height: 100,
-    backgroundColor: 'green',
+  box2:{
+    flex: 1,
+    borderWidth:1,
+    borderColor:'#f00',
   },
-  box3: {
-    width: 100,
-    height: 100,
-    backgroundColor: 'blue',
-  },
+  box3:{
+    flex: 2,
+    borderWidth:1,
+    borderColor:'#f00',
+  }
 });
 
 export default App;
