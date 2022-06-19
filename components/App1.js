@@ -1,68 +1,32 @@
 import React from 'react';
-import {View, Text, StyleSheet, Dimensions} from 'react-native';
-
-const {width} = Dimensions.get('window');
-
-const TextContainer = () => {
-  return (
-    <View style={styles.row}>
-      <View style={styles.box1}>
-        <Text>1</Text>
-      </View>
-      <View style={styles.box2}>
-        <Text>2</Text>
-      </View>
-      <View style={styles.box3}>
-        <Text>3</Text>
-      </View>
-    </View>
-  );
-};
+import {View, Button, Text, TouchableOpacity} from 'react-native';
 
 const App: () => Node = () => {
+  const [count, setCount] = React.useState(0);
+  const handlePress = () => {
+    setCount(count + 1);
+  };
   return (
-    <View style={styles.container}>
-      <Text style={{fontSize: 18}}>Flex布局练习</Text>
-      <View style={styles.box}>
-        <TextContainer></TextContainer>
-        <TextContainer></TextContainer>
-        <TextContainer></TextContainer>
-      </View>
+    <View>
+      <Text>{count}</Text>
+      {/* 对于默认的button是没有办法用styleSheet去修改样式的 */}
+      <Button title="Press me" onPress={handlePress} color="skyblue" />
+      <TouchableOpacity onPress={handlePress} style={StyleSheet.btn}>
+        <Text>点击自增</Text>
+      </TouchableOpacity>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
+const StyleSheet = {
+  btn: {
+    width: 100,
+    height: 100,
+    backgroundColor: 'pink',
+    borderRadius: 50,
+    justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: 80,
   },
-  box: {
-    width: width * 0.9,
-    height: 200,
-    backgroundColor: '#ccc',
-  },
-  row: {
-    flex: 1,
-    borderWidth: 1,
-    borderColor: '#000',
-    flexDirection: 'row',
-  },
-  box1:{
-    flex: 1.5,
-    borderWidth:1,
-    borderColor:'#f00',
-  },
-  box2:{
-    flex: 1,
-    borderWidth:1,
-    borderColor:'#f00',
-  },
-  box3:{
-    flex: 2,
-    borderWidth:1,
-    borderColor:'#f00',
-  }
-});
+};
 
 export default App;
