@@ -1,15 +1,36 @@
 import React from 'react';
-import {View} from 'react-native';
-import { WebView } from 'react-native-webview';
+import {View, FlatList,Text} from 'react-native';
+
+const arr_data = [
+  {
+    id: 1,
+    data: 10,
+  },
+  {
+    id: 2,
+    data: 20,
+  },
+  {
+    id: 3,
+    data: 30,
+  },
+  {
+    id: 4,
+    data: 40,
+  },
+];
 
 const App: () => Node = () => {
+  const renderFun = ({item})=> <Text>{item.id}: {item.data}</Text>;
   return (
-    <View style={{flex:1}}>
-      <WebView
-        source={{
-          uri: 'https://www.bilibili.com/video/BV195411E7pf?p=30&spm_id_from=pageDriver&vd_source=275d80a4973959d74816231a95cbac57',
-        }}></WebView>
-    </View>
+    <View style={{flex: 1}}>
+      <FlatList 
+        numColumns={1}
+        data={arr_data} 
+        renderItem={renderFun}
+      ></FlatList>
+         
+</View>
   );
 };
 
