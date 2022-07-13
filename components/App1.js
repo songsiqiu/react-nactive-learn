@@ -1,39 +1,29 @@
 import React from 'react';
-import {View, FlatList,Text} from 'react-native';
-
-const arr_data = [
-  {
-    id: 1,
-    data: 10,
-  },
-  {
-    id: 2,
-    data: 20,
-  },
-  {
-    id: 3,
-    data: 30,
-  },
-  {
-    id: 4,
-    data: 40,
-  },
-];
+import {View, TextInput} from 'react-native';
 
 const App: () => Node = () => {
-  const renderFun = ({item})=> <Text>{item.id}: {item.data}</Text>;
   return (
-    <View style={{flex: 1}}>
-      <FlatList 
-        numColumns={1}
-        data={arr_data} 
-        renderItem={renderFun}
-      ></FlatList>
-         
-</View>
+    <View>
+      <TextInput
+        style={styles.txtInput}
+        placeholder="请输入..."
+        placeholderTextColor="#ccc"
+        maxLength={8}
+        underlineColorAndroid="transparent"
+        // secureTextEntry={true}
+      />
+    </View>
   );
 };
 
-const StyleSheet = {};
+const styles = {
+  txtInput: {
+    borderWidth: 1,
+    borderColor: '#000',
+    marginTop: 50,
+    // padding:0,
+    height: 40,
+  },
+};
 
 export default App;
